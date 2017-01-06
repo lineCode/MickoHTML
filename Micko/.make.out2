@@ -1,0 +1,28 @@
+micko.tab.c: In function ‘yyparse’:
+micko.tab.c:1280:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
+       yychar = yylex ();
+                ^
+In file included from micko.y:3:0:
+defs.h:17:23: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+                       yyerror(char_buffer)
+                       ^
+micko.y:110:11: note: in expansion of macro ‘err’
+           err("undefined reference to 'main'");
+           ^
+In file included from symtab.c:8:0:
+symtab.c: In function ‘get_next_empty_element’:
+defs.h:17:23: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+                       yyerror(char_buffer)
+                       ^
+symtab.c:20:7: note: in expansion of macro ‘err’
+       err("Compiler error! Symbol table overflow!");
+       ^
+In file included from codegen.h:4:0,
+                 from codegen.c:4:
+codegen.c: In function ‘take_reg’:
+defs.h:17:23: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+                       yyerror(char_buffer)
+                       ^
+codegen.c:18:5: note: in expansion of macro ‘err’
+     err("Compiler error! No free registers!");
+     ^
