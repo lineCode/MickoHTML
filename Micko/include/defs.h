@@ -1,6 +1,9 @@
 #ifndef DEFS_H
 #define DEFS_H
 
+int yyerror(char *s);
+int yylex (void);
+
 #define bool int
 #define TRUE  1
 #define FALSE 0
@@ -9,7 +12,7 @@
 #define CHAR_BUFFER_LENGTH    128
 #define NO_ATTR               -1
 #define LAST_WORKING_REG      12
-#define FUN_REG               13  
+#define FUN_REG               13
 
 //pomocni makroi za ispis
 extern void warning(char *s);
@@ -28,7 +31,7 @@ extern char char_buffer[CHAR_BUFFER_LENGTH];
 enum types { NO_TYPE, INT, UINT };
 
 //vrste simbola (moze ih biti maksimalno 32)
-enum kinds { NO_KIND = 0x1, REG = 0x2, LIT = 0x4, 
+enum kinds { NO_KIND = 0x1, REG = 0x2, LIT = 0x4,
              FUN = 0x8, VAR = 0x10, PAR = 0x20 };
 
 //konstante arithmetickih operatora
@@ -44,7 +47,7 @@ static char* opposite_jumps[]={"JGES", "JLES", "JGTS", "JLTS", "JNE ", "JEQ ",
                                "JGEU", "JLEU", "JGTU", "JLTU", "JNE ", "JEQ "};
 
 
-static char* program_c = "function_list\n{\nint idx;\nif((idx = lookup_symbol(&quot;main&quot;, FUN)) == -1)\n\t err(&quot;undefined reference to 'main'&quot;);\nelse\n\tif(get_type(idx) != INT)\n\t\twarn(&quot;return type of 'main' is not int&quot;);\n}"; 
+static char* program_c = "function_list\n{\nint idx;\nif((idx = lookup_symbol(&quot;main&quot;, FUN)) == -1)\n\t err(&quot;undefined reference to 'main'&quot;);\nelse\n\tif(get_type(idx) != INT)\n\t\twarn(&quot;return type of 'main' is not int&quot;);\n}";
 
 static char* function_c = "type _ID\n{\nfun_idx = insert_symbol($3, FUN, $2, NO_ATTR); \ncode(&quot;\\n%s:&quot;, $3); \ncode(&quot;%s\\n\\t\\t\\tPUSH\\t%%14&quot;,tab);\ncode(&quot;%s\\n\\t\\t\\tMOV \\t%%15,%%14&quot;,tab);\n}\n_LPAREN parameter _RPAREN\n{\nset_attr(fun_idx, $6);\nvar_num = 0;\n}\nbody\n{\nif (get_last_element() > fun_idx)\n\tclear_symbols(fun_idx + 1);\n\ngen_sslab($3,&quot;_exit&quot;);\ncode(&quot;%s\\n\\t\\t\\tMOV \\t%%14,%%15&quot;,tab);\ncode(&quot;%s\\n\\t\\t\\tPOP \\t%%14&quot;,tab);\ncode(&quot;%s\\n\\t\\t\\tRET&quot;,tab);\n}";
 
