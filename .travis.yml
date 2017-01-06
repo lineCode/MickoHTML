@@ -5,4 +5,4 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get -y install flex bison
   - chmod a+x Micko/execute_tests
-script: CTEST_OUTPUT_ON_FAILURE=TRUE cd $TEST_DIR && cmake -G "Unix Makefiles" . && make && make test
+script: CTEST_OUTPUT_ON_FAILURE=TRUE cd $TEST_DIR && cmake -G "Unix Makefiles" . && make && ctest -VV

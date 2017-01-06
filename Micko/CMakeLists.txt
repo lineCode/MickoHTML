@@ -32,4 +32,4 @@ ENABLE_TESTING()
 ADD_TEST(TEST
   "${CMAKE_SOURCE_DIR}/execute_tests"
     "${CMAKE_BINARY_DIR}/${PROJECT_NAME}"
-    "${DIR}/test")
+    "${CMAKE_SOURCE_DIR}/test")
