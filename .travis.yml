@@ -1,0 +1,7 @@
+language: c
+env:
+  - TEST_DIR=Micko
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y flex bison
+script: CTEST_OUTPUT_ON_FAILURE=TRUE cd $TEST_DIR && cmake -G "Unix Makefiles" . && make && make test
