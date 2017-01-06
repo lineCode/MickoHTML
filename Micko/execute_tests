@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+
+OK_TEST_FAILED=1
+ERR_TEST_SUCCEEDED=2
+INVALID_TEST_FILE=3
+
+micko="${1}"
+test_dir="${2}"
+
+
+for full_test_path in "${test_dir}"/*
+do
+  test_path=$(basename "${full_test_path}")
+  echo "Testing ${test_path}"
+
+  if [[ "${test_path}" =~ ^ok- ]] ; then
+    "${micko}" < "${full_test_path}"
+    if [[ $? != 0 ]] ; then
+      exit ${OK_TEST_FAILED}
+    fi
+  elif [[ "${test_path}" =~ ^err- ]] ; then
+    "${micko}" < "${full_test_path}"
+    if [[ $? == 0 ]] ; then
+      exit "${ERR_TEST_SUCCEEDED}"
+    fi
+  else
+    (>&2 echo "Test file ${test_path} does not begin with 'ok-' or 'not-'")
+    exit ${INVALID_TEST_FILE}
+  fi
+done
+
+exit

@@ -1,0 +1,5 @@
+language: c
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y flex bison
+script: CTEST_OUTPUT_ON_FAILURE=TRUE cmake -G "Unix Makefiles" . && make && make test
