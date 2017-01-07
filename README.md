@@ -1,5 +1,7 @@
 # MickoHTML
 
+[![Build Status](https://travis-ci.org/vsanca/MickoHTML.svg?branch=master)](https://travis-ci.org/vsanca/MickoHTML)
+
 ## Interactive Mini C Compiler | Flex + Bison + C + Node.js + HTML
 
 Simple C compiler used for teaching in Compilers course. All rights reserved by the respective authors from the Chair of Applied Computer Science and Informatics at the Faculty of Technical Sciences in Novi Sad.
