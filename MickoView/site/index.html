@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
+  <title>Micko as a Service</title>
+</head>
+
+<body>
+  <h1>Micko View</h1>
+
+  <div id="input">
+    <h2>Ulazni fajl: </h2>
+    <input type="file" id="input" accept=".mc" multiple="false">
+    <button id="compile" type="button">Kompajliraj</button>
+  </div>
+
+  <div id="frames">
+    <div id="minic" class="frame">
+      <h2>Mini C kôd:</h2>
+
+      <iframe id="minic"></iframe>
+    </div>
+
+    <div id="assembly" class="frame">
+      <h2>Asemblerski kôd:</h2>
+
+      <iframe id="assembly"></iframe>
+    </div>
+
+    <div id="rules" class="frame">
+      <h2>Pravila generisanja:</h2>
+
+      <iframe id="rules"></iframe>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "micko_view",
+  "version": "1.0.0",
+  "description": "Web interface for micko compiler",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsanca/MickoHTML.git"
+  },
+  "author": "authext",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vsanca/MickoHTML/issues"
+  },
+  "homepage": "https://github.com/vsanca/MickoHTML#readme",
+  "dependencies": {
+    "child_process": "1.0.x",
+    "node-fs": "0.1.x",
+    "node-http": "0.0.x",
+    "path": "0.12.x",
+    "tmp": "0.0.x",
+    "url": "0.11.x"
+  }
+}
