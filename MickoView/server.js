@@ -10,7 +10,7 @@ var path = require('path');
 main();
 
 function main() {
-  const port = 8080;
+  const port = 80;
 
   tmp.setGracefulCleanup();
 
